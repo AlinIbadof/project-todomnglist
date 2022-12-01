@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  //Router through dependency injection
+  constructor(private router: Router) {}
+
   username = '';
   password = '';
   errorMessage = 'Invalid credentials';
@@ -15,6 +19,8 @@ export class LoginComponent {
     if (this.username === 'alin' && this.password === 'dummy') {
       this.invalidLogin = false;
       console.log(this.username + ' - ' + 'Logged in successfully!');
+      // Redirect to welcome page
+      this.router.navigate(['welcome']);
     } else {
       this.invalidLogin = true;
     }
