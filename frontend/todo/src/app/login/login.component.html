@@ -1,0 +1,21 @@
+<div>
+  <label for="">User Name: </label>
+  <input
+    type="text"
+    name="username"
+    placeholder="Enter username here"
+    [(ngModel)]="username"
+  />
+</div>
+
+<div>
+  <label for="">Password: </label>
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter password here"
+    [(ngModel)]="password"
+  />
+</div>
+
+<button (click)="handleLogin()">Login</button>
