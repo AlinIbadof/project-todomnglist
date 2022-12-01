@@ -8,9 +8,15 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   username = '';
   password = '';
+  errorMessage = 'Invalid credentials';
+  invalidLogin = false;
 
   handleLogin() {
-    console.log(this.username + ' - ' + 'Logged in successfully!');
-    console.log('The password is: ' + this.password);
+    if (this.username === 'alin' && this.password === 'dummy') {
+      this.invalidLogin = false;
+      console.log(this.username + ' - ' + 'Logged in successfully!');
+    } else {
+      this.invalidLogin = true;
+    }
   }
 }

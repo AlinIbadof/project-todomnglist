@@ -1,9 +1,11 @@
+<small *ngIf="invalidLogin">{{ errorMessage }}</small>
+
 <div>
   <label for="">User Name: </label>
   <input
     type="text"
     name="username"
-    placeholder="Enter username here"
+    placeholder="user"
     [(ngModel)]="username"
   />
 </div>
@@ -13,7 +15,7 @@
   <input
     type="password"
     name="password"
-    placeholder="Enter password here"
+    placeholder="pass"
     [(ngModel)]="password"
   />
 </div>
