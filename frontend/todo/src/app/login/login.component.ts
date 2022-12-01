@@ -20,7 +20,7 @@ export class LoginComponent {
       this.invalidLogin = false;
       console.log(this.username + ' - ' + 'Logged in successfully!');
       // Redirect to welcome page
-      this.router.navigate(['welcome']);
+      this.router.navigate(['welcome', this.username]);
     } else {
       this.invalidLogin = true;
     }
