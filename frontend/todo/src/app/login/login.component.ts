@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   //Router through dependency injection
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private hardcodedAuthenticationService: HardcodedAuthenticationService
+  ) {}
 
   username = '';
   password = '';
@@ -16,7 +20,12 @@ export class LoginComponent {
   invalidLogin = false;
 
   handleLogin() {
-    if (this.username === 'alin' && this.password === 'dummy') {
+    if (
+      this.hardcodedAuthenticationService.authenticate(
+        this.username,
+        this.password
+      )
+    ) {
       this.invalidLogin = false;
       console.log(this.username + ' - ' + 'Logged in successfully!');
       // Redirect to welcome page
