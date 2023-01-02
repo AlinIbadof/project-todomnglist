@@ -22,12 +22,24 @@ export class WelcomeComponent implements OnInit {
   message = 'Some welcome message';
 
   getWelcomeMessage() {
-    this.service
-      .executeHelloWorldBeanService()
-      .subscribe((response) => this.handleSucessfulResponse(response));
+    this.service.executeHelloWorldBeanService().subscribe(
+      (response) => this.handleSucessfulResponse(response),
+      (error) => this.handleErrorResponse(error)
+    );
+  }
+
+  getWelcomeMessageWithParameter() {
+    this.service.executeHelloWorldWithPathVariableService(this.name).subscribe(
+      (response) => this.handleSucessfulResponse(response),
+      (error) => this.handleErrorResponse(error)
+    );
   }
 
   handleSucessfulResponse(response: any) {
     this.welcomeMessageFromService = response.message;
+  }
+
+  handleErrorResponse(error: any) {
+    this.welcomeMessageFromService = error.error.message;
   }
 }

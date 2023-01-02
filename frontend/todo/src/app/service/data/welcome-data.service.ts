@@ -13,7 +13,13 @@ export class WelcomeDataService {
 
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>(
-      'http://localhost:8081/hello-world/path-variable/alin'
+      'http://localhost:8081/hello-world-bean'
+    );
+  }
+
+  executeHelloWorldWithPathVariableService(name: string) {
+    return this.http.get<HelloWorldBean>(
+      `http://localhost:8081/hello-world/path-variable/${name}`
     );
   }
 }
