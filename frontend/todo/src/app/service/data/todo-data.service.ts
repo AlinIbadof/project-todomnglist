@@ -32,4 +32,11 @@ export class TodoDataService {
       todo
     );
   }
+
+  createTodo(username: string, todo: Todo) {
+    return this.http.post(
+      `http://localhost:8081/users/${username}/todos`,
+      todo
+    );
+  }
 }
